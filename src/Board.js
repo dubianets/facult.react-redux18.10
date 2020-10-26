@@ -12,6 +12,7 @@ function Board(props) {
             {columns.map(el => <Column
                     key={el._id}
                     column={el}
+                    columns={columns}
                     cards={cards}
                 />
             )}

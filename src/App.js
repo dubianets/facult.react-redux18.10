@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {Button, Container} from "reactstrap";
 import Board from "./Board";
 import {getCardsAndColumns} from "./action";
-import AddCArd from "./AddCard";
+import Header from "./Header";
 
 
 function App(props) {
@@ -16,9 +16,10 @@ function App(props) {
     return (
         <Container>
 
-            <AddCArd columns={props.columns}/>
+            <Header columns={props.columns}/>
 
             <Board
+                key={Math.random()}
                 cards={props.cards}
                 columns={props.columns}
             />

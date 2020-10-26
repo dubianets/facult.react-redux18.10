@@ -6,7 +6,7 @@ import CardItem from "./CardItem";
 
 function Column (props) {
 
-    const {cards, column} = props;
+    const {cards, column, columns} = props;
 
     return (
         <Col>
@@ -15,6 +15,7 @@ function Column (props) {
             {cards.filter(el =>  el.status === column.status)
                 .map(elem => <CardItem
                     key={elem._id}
+                    columns={columns}
                     card={elem}/>
                     )}
         </Col>

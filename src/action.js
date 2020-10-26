@@ -53,3 +53,20 @@ export function addCard (card) {
             .catch(err => err)
     }
 }
+
+export function changeStatus (status, cardId) {
+    return (dispatch) => {
+        axios.patch(`https://nazarov-kanban-server.herokuapp.com/card/${cardId}`, {status: status})
+            .then(res => {
+                axios.get(`https://nazarov-kanban-server.herokuapp.com/card/`)
+                    .then(res => {
+                        dispatch({
+                            type: 'GET_CARDS',
+                            payload: res.data
+                        })
+                    })
+                    .catch(err => err)
+            })
+            .catch(err => err)
+    }
+}
